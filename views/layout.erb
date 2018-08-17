@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <ul id ='nav'>
+      <li><a href="/">Home</a></li>
+      <% if session[:user] == nil%>
+      <li><a href="/signup">Sign Up</a></li>
+      <li><a href="/login">Log In</a></li>
+      <% else %>
+      <li><a href="/account"><%=session[:user]%></a></li>
+      <li><a href="/logout">Log Out<a/></li>
+      <% end %>
+    </ul>
+    <%= yield%>
+  </body>
+</html>
